@@ -56,7 +56,7 @@ function mainConfiguration(env: Env): Configuration {
       filename: '[name].js',
       path: path.join(__dirname, DISTNAME),
       clean: {
-        keep: /renderer\/|preload\//,
+        keep: /renderer\//,
       },
     },
 
