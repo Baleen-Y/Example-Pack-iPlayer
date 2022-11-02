@@ -82,7 +82,7 @@
     "electron": "18.0.4",
     "electron-builder": "^23.0.3",
     "electron-installer-dmg": "^4.0.0",
-    "electron-packager": "^15.4.0",
+    "electron-packager": "15.4.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.4.7",
