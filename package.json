@@ -1,0 +1,103 @@
+{
+  "name": "example-iplayer-pack",
+  "productName": "Example Pack iPlayer",
+  "version": "0.0.1",
+  "description": "This is a example",
+  "author": "Integem Inc.",
+  "main": "main-process.js",
+  "repository": "Baleen-Y/Example-Pack-iPlayer",
+  "build": {
+    "appId": "com.integem.iPlayer.example",
+    "productName": "Example Pack iPlayer",
+    "copyright": "Copyright © 2022 integem",
+    "releaseInfo": {
+      "releaseNotes": ""
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Baleen-Y",
+        "repo": "Example-Pack-iPlayer"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "./doc/logo.png",
+      "publish": [
+        "github"
+      ]
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "scripts": {
+    "test": "npx jest",
+    "build": "npx webpack",
+    "build:prod": "npx rimraf ./dist && npx webpack --env production",
+    "start": "npx concurrently \"npx webpack --config-name preload && npx webpack serve --config-name renderer --env hot-reload \" \"npx webpack --config-name main && npx electron ./dist/main-process.js\" --kill-others --kill-others-on-fail",
+    "start:prod": "npm run build:prod && npx electron ./dist/main-process.js",
+    "pack": "npx rimraf ./pack && npm run build:prod && npx electron-packager ./dist --out ./pack --icon=doc/logo.ico --overwrite",
+    "app:windows": "npm run pack && npx rimraf ./release && electron-builder build --prepackaged \"./pack/Example Pack iPlayer-win32-x64\" --publish never"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@fontsource/gluten": "^4.5.1",
+    "@fontsource/harmattan": "^4.5.0",
+    "@fontsource/lora": "^4.5.4",
+    "@fontsource/poppins": "^4.5.3",
+    "@fractalsoftware/random-avatar-generator": "^1.0.11",
+    "@mui/icons-material": "^5.3.0",
+    "@mui/lab": "^5.0.0-alpha.67",
+    "@mui/material": "^5.3.0",
+    "@reduxjs/toolkit": "^1.7.1",
+    "electron-builder-squirrel-windows": "^23.3.2",
+    "electron-log": "^4.4.6",
+    "electron-updater": "^5.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
+    "@types/adm-zip": "^0.4.34",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.8",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router-dom": "^5.3.2",
+    "@types/styled-components": "^5.1.19",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-env": "^1.16.3",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^7.0.0",
+    "copy-webpack-plugin": "^10.2.0",
+    "css-loader": "^6.5.1",
+    "electron": "18.0.4",
+    "electron-builder": "^23.0.3",
+    "electron-installer-dmg": "^4.0.0",
+    "electron-packager": "^15.4.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.4.7",
+    "node-loader": "^2.0.0",
+    "react-refresh": "^0.11.0",
+    "rimraf": "^3.0.2",
+    "style-loader": "^3.3.1",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-middleware": "^5.3.0",
+    "webpack-dev-server": "^4.8.1",
+    "webpack-merge": "^5.8.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "esNext",
+    "module": "CommonJS",
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "lib": ["es6", "dom", "dom.iterable"],
+    "allowJs": true,
+    "checkJs": true,
+    "paths": {
+      "@/shared/*": ["src/shared/*"],
+      "@/renderer/*": ["src/renderer/*"],
+      "@/main/*": ["src/main/*"]
+    }
+  },
+  "exclude": [
+    "dist",
+    "pack",
+    "doc",
+    "src/renderer/libs",
+    "mac-pack.js",
+    "linux-pack.js",
+    "mac-pack-dev.js",
+    "mac-pack-mas.js",
+    "mac-pack-dev-back.js"
+  ]
+}
